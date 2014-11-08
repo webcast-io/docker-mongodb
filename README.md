@@ -70,8 +70,8 @@ By default is "yes".
 Creating a database user (Axisto-live)
 --------------------------------------
 
-For Axisto-live we need a set database for the environment you are running and a db user who has readWrite permissions on that db. Run the docker img with the extra environment variables of DB_ENV (stagign or production) and DB_PASS (user password for the db) The username for the db will be set to the DB_ENV variable.
+For Axisto-live we need a set database for the environment you are running and a db user who has readWrite permissions on that db. Run the docker img with the extra environment variables of $DB_NAME, $DB_USER and $DB_PASS.
 
-         docker run -d -p 27017:27017 -p 28017:28017 -e DB_ENV="staging" -e DB_PASS="secret" tutum/mongodb
+         docker run -d -p 27017:27017 -p 28017:28017 -e DB_NAME="presenter-staging" -e DB_USER="axisto" -e DB_PASS="secret" tutum/mongodb
 
-e.g. You can now connect to the db [presenter-staging] with the password [secret]
+e.g. You can now connect to the db [presenter-staging] as the user [axisto] with the password [secret]

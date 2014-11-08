@@ -21,7 +21,7 @@ done
 echo "=> Creating an admin user with a ${_word} password in MongoDB"
 mongo admin --eval "db.addUser( { user: 'admin', pwd: '$PASS', roles: [ 'userAdminAnyDatabase', 'dbAdminAnyDatabase', 'readWriteAnyDatabase' ] } );"
 mongo admin --eval "db.auth('admin', '$PASS')"
-mongo presenter-$DB_ENV --eval "db.addUser('$DB_ENV', '$DB_PASS')"
+mongo $DB_NAME --eval "db.addUser('$DB_USER', '$DB_PASS')"
 mongo admin --eval "db.shutdownServer();"
 
 echo "=> Done!"
