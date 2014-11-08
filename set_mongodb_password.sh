@@ -23,7 +23,6 @@ mongo admin --eval "db.addUser( { user: 'admin', pwd: '$PASS', roles: [ 'userAdm
 mongo admin --eval "db.auth('admin', '$PASS')"
 mongo presenter-$DB_ENV --eval "db.addUser('$DB_ENV', '$DB_PASS')"
 mongo admin --eval "db.shutdownServer();"
-mongo admin --eval "use test"
 
 echo "=> Done!"
 touch /.mongodb_password_set
