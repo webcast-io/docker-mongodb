@@ -7,9 +7,9 @@ Base docker image to run a MongoDB database server
 Usage
 -----
 
-To create the image `tutum/mongodb`, execute the following command on the tutum-mongodb folder:
+To create the image `webcastio/mongodb`, execute the following command on the webcastio-mongodb folder:
 
-        docker build -t tutum/mongodb .
+        docker build -t webcastio/mongodb .
 
 
 Running the MongoDB server
@@ -17,7 +17,7 @@ Running the MongoDB server
 
 Run the following command to start MongoDB:
 
-        docker run -d -p 27017:27017 -p 28017:28017 tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 webcastio/mongodb
 
 The first time that you run your container, a new random password will be set.
 To get the password, check the logs of the container by running:
@@ -48,7 +48,7 @@ Setting a specific password for the admin account
 If you want to use a preset password instead of a randomly generated one, you can
 set the environment variable `MONGODB_PASS` to your specific password when running the container:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_PASS="mypass" tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 -e MONGODB_PASS="mypass" webcastio/mongodb
 
 You can now test your new admin password:
 
@@ -60,7 +60,7 @@ Run MongoDB without password
 
 If you want run MongoDB without password you can set tge environment variable `AUTH` to specific if you want password or not when running the container:
 
-        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no tutum/mongodb
+        docker run -d -p 27017:27017 -p 28017:28017 -e AUTH=no webcastio/mongodb
 
 By default is "yes".
 
@@ -72,6 +72,6 @@ Creating a database user (Axisto-live)
 
 For Axisto-live we need a set database for the environment you are running and a db user who has readWrite permissions on that db. Run the docker img with the extra environment variables of $DB_NAME, $DB_USER and $DB_PASS.
 
-         docker run -d -p 27017:27017 -p 28017:28017 -e DB_NAME="presenter-staging" -e DB_USER="axisto" -e DB_PASS="secret" tutum/mongodb
+         docker run -d -p 27017:27017 -p 28017:28017 -e DB_NAME="presenter-staging" -e DB_USER="axisto" -e DB_PASS="secret" webcastio/mongodb
 
 e.g. You can now connect to the db [presenter-staging] as the user [axisto] with the password [secret]
